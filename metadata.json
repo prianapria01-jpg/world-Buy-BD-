@@ -1,0 +1,6 @@
+{
+  "name": "World Buy BD",
+  "description": "China to Bangladesh — Easy, Safe & Affordable. Direct product sourcing & wholesale e-commerce platform.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

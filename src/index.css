@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #cb1e46; /* World Buy BD Signature Crimson/Ruby Red */
+  --color-primary-dark: #b01438;
+  --color-primary-light: #fff0f4;
+  --color-secondary: #014144; /* Deep Pine Teal / China Sourcing Green */
+  --color-secondary-dark: #063337;
+  --color-accent: #0a484e;
+  --color-pink: #cb1e46;
+  --color-black: #111827; /* Dark Slate text */
+  --color-charcoal: #1e293b; /* Slate 800 */
+  --color-bg: #f8f9fa; /* Crisp clean neutral e-commerce background */
+  --color-white: #ffffff;
+  --color-border: #e2e8f0;
+  --color-text-secondary: #64748b;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-black);
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  overscroll-behavior-y: auto;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Crisp Clean Glassmorphism & Structured E-commerce Cards */
+.wb-glass-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 2px 6px -1px rgba(0, 0, 0, 0.05), 0 1px 3px -1px rgba(0, 0, 0, 0.03);
+}
+
+.wb-glass-card-subtle {
+  background: #ffffff;
+  border: 1px solid #edf2f7;
+}
+
+/* Standard e-commerce responsive product grid */
+.product-grid-standard {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+@media (min-width: 640px) {
+  .product-grid-standard {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 14px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .product-grid-standard {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+  }
+}

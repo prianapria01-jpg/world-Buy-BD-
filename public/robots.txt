@@ -1,0 +1,25 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /admin/
+Disallow: /subadmin
+Disallow: /subadmin/
+Disallow: /api/admin
+Disallow: /api/admin/
+Disallow: /account
+Disallow: /checkout
+Disallow: /portal
+
+User-agent: Googlebot
+Allow: /
+Disallow: /admin/
+Disallow: /subadmin/
+Disallow: /api/admin/
+Disallow: /account
+Disallow: /checkout
+
+User-agent: Googlebot-Image
+Allow: /
+
+Sitemap: https://worldbuybd.web.app/sitemap.xml
+

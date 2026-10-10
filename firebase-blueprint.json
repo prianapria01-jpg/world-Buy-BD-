@@ -1,0 +1,61 @@
+{
+  "entities": {
+    "Product": {
+      "title": "Product",
+      "description": "Store product item imported or created by admin",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "offerId": { "type": "string" },
+        "name": { "type": "string" },
+        "category": { "type": "string" },
+        "price": { "type": "number" },
+        "rmbPrice": { "type": "number" },
+        "image": { "type": "string" },
+        "status": { "type": "string", "enum": ["published", "draft"] }
+      },
+      "required": ["id", "name", "price"]
+    },
+    "Order": {
+      "title": "Order",
+      "description": "Customer purchase order",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "status": { "type": "string", "enum": ["Pending", "Processing", "Purchased", "Shipped", "Delivered", "Cancelled"] },
+        "total": { "type": "number" },
+        "paidAmount": { "type": "number" }
+      },
+      "required": ["id", "userId", "status", "total"]
+    },
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Registered user profile information",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "name": { "type": "string" },
+        "role": { "type": "string", "enum": ["customer", "admin", "cs"] },
+        "cart": { "type": "array", "items": { "type": "object" } },
+        "wishlist": { "type": "array", "items": { "type": "object" } }
+      },
+      "required": ["uid", "email"]
+    }
+  },
+  "firestore": {
+    "/products/{productId}": {
+      "schema": { "$ref": "#/entities/Product" },
+      "description": "Public catalog of products"
+    },
+    "/orders/{orderId}": {
+      "schema": { "$ref": "#/entities/Order" },
+      "description": "Customer orders collection"
+    },
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/UserProfile" },
+      "description": "User profiles collection"
+    }
+  }
+}

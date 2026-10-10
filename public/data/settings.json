@@ -1,0 +1,61 @@
+{
+  "siteName": "WORLD BUY BD",
+  "tagline": "Import products from China to Bangladesh safely and conveniently",
+  "currency": "BDT",
+  "paymentOptions": {
+    "partial": {
+      "percentage": 80,
+      "discountPercentage": 0,
+      "label": "Pay 80% Advance",
+      "description": "Remaining 20% + shipping payable on delivery in Bangladesh"
+    },
+    "full": {
+      "percentage": 100,
+      "discountPercentage": 3,
+      "label": "Pay 100% Advance",
+      "description": "Instant 3% flat discount on product price"
+    }
+  },
+  "shipping": {
+    "air": {
+      "title": "BUY AIR (Fast Delivery)",
+      "deliveryDays": "7–12 Days",
+      "rates": [
+        { "category": "Category A (General Clothing, Shoes, Bags, Accessories)", "ratePerKg": 780 },
+        { "category": "Category B (Electronics, Gadgets, Beauty & Cosmetic items)", "ratePerKg": 1200 },
+        { "category": "Category C (Special, Sensitive & Battery Products)", "ratePerKg": 1450 }
+      ],
+      "defaultRatePerKg": 780
+    },
+    "sea": {
+      "title": "BUY SEA (Bulk & Heavy Economy)",
+      "deliveryDays": "30–40 Days",
+      "rateRange": "BDT 170 – BDT 450 / kg",
+      "ratePerKg": 260,
+      "cbmRate": 22500,
+      "description": "Cost-effective solution for machinery, furniture, heavy parcels, and bulk shipments"
+    },
+    "warningNote": "Product weight shown on this page is an estimated weight. Final shipping charges will be calculated according to the actual measured weight after the product arrives in Bangladesh."
+  },
+  "services": [
+    { "id": "protection", "title": "Buyer Protection", "description": "100% money back guarantee on missing or wrong items", "icon": "shield-check" },
+    { "id": "inspection", "title": "Quality Inspection", "description": "Rigorous physical QC inspection in our Guangzhou warehouse", "icon": "check-circle" },
+    { "id": "shipping", "title": "Air & Sea Cargo", "description": "Direct customs clearance & nationwide doorstep courier", "icon": "plane" },
+    { "id": "payment", "title": "Secure Payment", "description": "bKash, Nagad, Cards & Bank Transfer accepted safely", "icon": "lock" },
+    { "id": "sourcing", "title": "Direct Wholesale Sourcing", "description": "Zero middlemen commission, authentic wholesale factory rates", "icon": "layers" },
+    { "id": "support", "title": "24/7 Dedicated Support", "description": "Dedicated customer support agents in Dhaka & Guangzhou", "icon": "headphones" }
+  ],
+  "contact": {
+    "phone": "01355136661",
+    "email": "support@worldbuybd.com",
+    "address": "House - 07, Road - 2/A, Sector - 4, Uttara, Dhaka - 1230, Bangladesh",
+    "hours": "10:00 AM – 10:00 PM (Everyday)",
+    "bankDetails": {
+      "accountName": "Md Shamim Hossen",
+      "bankName": "South East Bank PLC",
+      "accountNumber": "002412100022424",
+      "branchName": "Banani Branch",
+      "routingNumber": "205260432"
+    }
+  }
+}

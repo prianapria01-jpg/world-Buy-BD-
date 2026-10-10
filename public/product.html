@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WORLD BUY BD - Import Products from China to Bangladesh</title>
+  <meta name="description" content="Shop authentic products from Wholesale, Taobao & Tmall with WORLD BUY BD. Direct Air & Sea shipping to Bangladesh with full buyer protection.">
+  <link rel="stylesheet" href="product.css">
+  <!-- Lucide icons via unpkg -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- Top Utility Bar -->
+  <div class="header-top">
+    <div class="container">
+      <div class="header-top-left">
+        <span><i data-lucide="plane" style="width:14px;display:inline-block;vertical-align:middle;"></i> Direct China-to-Bangladesh Air (7-12 days) &amp; Sea Cargo (30-40 days)</span>
+      </div>
+      <div class="header-top-links">
+        <a href="#shipping-modal" id="open-shipping-guide"><i data-lucide="truck" style="width:13px;display:inline-block;"></i> Shipping Rates</a>
+        <a href="tel:+8801616045789"><i data-lucide="phone" style="width:13px;display:inline-block;"></i> Hotline: +880 1616-045789</a>
+        <a href="javascript:void(0)" id="currency-display">BD (BDT  BDT)</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sticky Glassmorphic Header -->
+  <header class="site-header" id="site-header">
+    <div class="container">
+      <div class="header-wrapper">
+        
+        <!-- Logo -->
+        <a href="product.html?offerId=abb-963357947517" class="brand-logo" title="WORLD BUY BD">
+          <div class="brand-icon">
+            <i data-lucide="globe" style="width:24px;height:24px;"></i>
+          </div>
+          <div class="brand-text">
+            <span class="brand-name">WORLD<span>BUY</span> BD</span>
+            <span class="brand-tag">China Import Hub</span>
+          </div>
+        </a>
+
+        <!-- Search Bar -->
+        <div class="header-search">
+          <form id="search-form" onsubmit="event.preventDefault(); window.handleSearch();">
+            <div class="search-input-group">
+              <input type="text" id="search-input" class="search-input" placeholder="Paste Wholesale / Taobao link or product title...">
+              <button type="submit" class="search-btn" title="Search">
+                <i data-lucide="search" style="width:17px;height:17px;"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Navigation Links -->
+        <nav class="header-nav">
+          <a href="product.html?offerId=abb-963357947517" class="nav-link active">Home</a>
+          <a href="#related-products-section" class="nav-link">Shop</a>
+          <a href="#related-products-section" class="nav-link">Categories</a>
+        </nav>
+
+        <!-- User Actions (Wishlist, Cart, Account) -->
+        <div class="header-actions">
+          <button class="action-btn" id="header-wishlist-btn" title="Wishlist">
+            <i data-lucide="heart" style="width:20px;height:20px;"></i>
+            <span class="action-badge" id="wishlist-badge">0</span>
+          </button>
+          
+          <button class="action-btn" id="header-cart-btn" title="Cart">
+            <i data-lucide="shopping-bag" style="width:20px;height:20px;"></i>
+            <span class="action-badge" id="cart-badge">0</span>
+          </button>
+
+          <button class="action-btn login-btn-header" id="header-auth-btn">
+            <i data-lucide="user" style="width:18px;height:18px;"></i>
+            <span id="auth-status-text">Account</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Breadcrumb Navigation -->
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <ul class="breadcrumb-list">
+        <li><a href="product.html?offerId=abb-963357947517"><i data-lucide="home" style="width:14px;height:14px;"></i> Home</a></li>
+        <li><i data-lucide="chevron-right" style="width:14px;height:14px;"></i></li>
+        <li><a href="javascript:void(0)" id="crumb-category">Bags &amp; Luggage</a></li>
+        <li><i data-lucide="chevron-right" style="width:14px;height:14px;"></i></li>
+        <li><span class="current" id="crumb-product-title">Loading product...</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Main Container -->
+  <main class="container">
+    
+    <!-- 3-Column Desktop Product Main Section -->
+    <div class="product-main-grid" id="product-details-container">
+
+      <!-- LEFT COLUMN: Vertical Thumbnails Strip -->
+      <div class="gallery-thumbnails-col" id="gallery-thumbnails">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <!-- CENTER COLUMN: Main Image & Interactive Viewer -->
+      <div class="gallery-main-col">
+        <div class="gallery-badges">
+          <span class="badge-import"><i data-lucide="shield-check" style="width:13px;height:13px;"></i> Direct Wholesale Verified</span>
+          <span class="badge-discount-tag" id="main-discount-badge">-7% OFF</span>
+        </div>
+
+        <button class="gallery-nav-btn gallery-nav-prev" id="gallery-prev-btn" title="Previous Image">
+          <i data-lucide="chevron-left" style="width:22px;height:22px;"></i>
+        </button>
+
+        <div class="gallery-media-container" id="media-viewport">
+          <img src="" alt="Product view" class="gallery-main-image" id="main-product-image">
+          <video class="gallery-video-player" id="main-product-video" controls playsinline></video>
+        </div>
+
+        <button class="gallery-nav-btn gallery-nav-next" id="gallery-next-btn" title="Next Image">
+          <i data-lucide="chevron-right" style="width:22px;height:22px;"></i>
+        </button>
+
+        <button class="gallery-zoom-action" id="fullscreen-zoom-trigger">
+          <i data-lucide="maximize-2" style="width:14px;height:14px;"></i>
+          <span>Full Screen</span>
+        </button>
+      </div>
+
+      <!-- RIGHT COLUMN: Product Information & Buying Options -->
+      <div class="product-info-col">
+        
+        <!-- Title & Identification -->
+        <div class="product-meta-header">
+          <div class="product-category-wrap">
+            <span class="category-tag" id="product-category-tag">Bags</span>
+            <span class="product-offer-id">ID: <strong id="product-offer-id-text">...</strong></span>
+          </div>
+          <h1 class="product-title" id="product-title-text">Loading product details...</h1>
+        </div>
+
+        <!-- Rating & Sales Status -->
+        <div class="product-stats-row">
+          <div class="rating-badge">
+            <i data-lucide="star" style="width:14px;height:14px;fill:currentColor;"></i>
+            <span id="product-rating-score">4.8</span>
+            <span style="font-weight:400;color:#92400e;" id="product-review-count">(184 reviews)</span>
+          </div>
+          <div class="sales-count">
+            <i data-lucide="shopping-bag" style="width:15px;height:15px;color:var(--slate-400);"></i>
+            <span id="product-sold-count">1,250 Sold</span>
+          </div>
+          <div class="stock-count">
+            <i data-lucide="check-circle-2" style="width:15px;height:15px;color:var(--success);"></i>
+            <span id="product-stock-status" class="stock-in">In Stock (450 available)</span>
+          </div>
+        </div>
+
+        <!-- Price Card -->
+        <div class="price-card">
+          <div class="price-row-main">
+            <div class="current-price-wrap">
+              <span class="currency-sym">BDT </span>
+              <span class="current-price-val" id="product-current-price">1,250</span>
+            </div>
+            <div class="original-price-wrap">
+              <span>BDT </span><span id="product-original-price">1,350</span>
+            </div>
+            <span class="discount-badge-pill" id="price-card-discount">-7%</span>
+          </div>
+          <div class="price-guarantee-note">
+            <i data-lucide="badge-percent" style="width:15px;height:15px;color:var(--primary);"></i>
+            <span>Guaranteed wholesale rate direct from China manufacturer</span>
+          </div>
+        </div>
+
+        <!-- Payment Discount (80% vs 100%) -->
+        <div class="payment-section-box">
+          <div class="section-subheading">
+            <span>Payment Options</span>
+            <span style="color:var(--primary);font-size:12px;cursor:pointer;" id="payment-info-link"><i data-lucide="help-circle" style="width:13px;height:13px;vertical-align:middle;"></i> How it works</span>
+          </div>
+          <div class="payment-options-grid">
+            
+            <!-- 80% Advance Option -->
+            <div class="payment-option-card" id="pay-opt-80" onclick="window.selectPaymentOption(80)">
+              <div class="payment-radio-row">
+                <div class="payment-radio-indicator"></div>
+                <span>Pay 80%</span>
+                <span class="payment-discount-tag tag-standard">Standard</span>
+              </div>
+              <div class="payment-amount-preview" id="preview-pay-80">BDT  1,000</div>
+              <div class="payment-desc-text">Pay remaining 20% on arrival in Bangladesh</div>
+            </div>
+
+            <!-- 100% Full Payment Option (3% Instant Discount) -->
+            <div class="payment-option-card active" id="pay-opt-100" onclick="window.selectPaymentOption(100)">
+              <div class="payment-radio-row">
+                <div class="payment-radio-indicator"></div>
+                <span>Pay 100%</span>
+                <span class="payment-discount-tag tag-save">3% OFF</span>
+              </div>
+              <div class="payment-amount-preview" id="preview-pay-100">BDT  1,212</div>
+              <div class="payment-desc-text">Instant 3% flat discount on entire item total</div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Dynamic Variations / SKU Selector -->
+        <div class="sku-variations-wrapper" id="sku-attributes-container">
+          <!-- Dynamic SKU attribute groups generated via JavaScript -->
+        </div>
+
+        <!-- Quantity Selector & Selected SKU display -->
+        <div class="quantity-stock-row">
+          <div class="quantity-control">
+            <button class="qty-btn" id="qty-decrease-btn" title="Decrease Quantity">-</button>
+            <input type="number" id="quantity-input" class="qty-input" value="1" min="1" max="999">
+            <button class="qty-btn" id="qty-increase-btn" title="Increase Quantity">+</button>
+          </div>
+          <div class="unit-subtotal-text">
+            Product Total: <span id="unit-subtotal-display">BDT  1,250</span>
+          </div>
+        </div>
+
+        <!-- Shipping Section -->
+        <div class="shipping-card-section">
+          <div class="shipping-header-row">
+            <div class="section-subheading" style="margin-bottom:0;">
+              <span>Estimated Shipping Charge</span>
+            </div>
+            <button class="shipping-modal-trigger" id="open-shipping-rates-btn">
+              <i data-lucide="info" style="width:14px;height:14px;"></i> Rate Details
+            </button>
+          </div>
+
+          <div class="shipping-methods-grid">
+            <!-- Air Shipping -->
+            <div class="shipping-method-card active" id="ship-method-air" onclick="window.selectShippingMethod('air')">
+              <div class="ship-method-title">
+                <i data-lucide="plane" style="width:16px;height:16px;color:var(--primary);"></i>
+                <span>BUY AIR</span>
+              </div>
+              <div class="ship-method-meta">7–12 Days • Category A (BDT 780/kg)</div>
+              <div class="ship-method-cost" id="ship-air-cost">Est. BDT  663</div>
+            </div>
+
+            <!-- Sea Shipping -->
+            <div class="shipping-method-card" id="ship-method-sea" onclick="window.selectShippingMethod('sea')">
+              <div class="ship-method-title">
+                <i data-lucide="ship" style="width:16px;height:16px;color:var(--accent);"></i>
+                <span>BUY SEA</span>
+              </div>
+              <div class="ship-method-meta">30–40 Days • Heavy/Bulk (BDT 260/kg)</div>
+              <div class="ship-method-cost" id="ship-sea-cost">Est. BDT  221</div>
+            </div>
+          </div>
+
+          <!-- Shipping Warning Notice -->
+          <div class="shipping-warning-note">
+            <i data-lucide="alert-circle" style="width:16px;height:16px;flex-shrink:0;margin-top:1px;"></i>
+            <span>Product weight shown on this page is an estimated weight. Final shipping charges will be calculated according to the actual measured weight after the product arrives in Bangladesh.</span>
+          </div>
+        </div>
+
+        <!-- Live Order Total Calculation Panel -->
+        <div class="order-summary-panel">
+          <div class="summary-row">
+            <span>Product Price (<span id="calc-qty-multiplier">1</span> × BDT <span id="calc-unit-price">1,250</span>)</span>
+            <span>BDT  <strong id="calc-subtotal">1,250</strong></span>
+          </div>
+          <div class="summary-row">
+            <span>Est. Shipping Charge (<span id="calc-ship-type">BUY AIR</span>)</span>
+            <span>BDT  <strong id="calc-shipping">663</strong></span>
+          </div>
+          <div class="summary-row discount-row" id="calc-discount-row">
+            <span>Payment Discount (<span id="calc-discount-pct">3%</span>)</span>
+            <span>- BDT  <strong id="calc-discount-val">38</strong></span>
+          </div>
+          <div class="summary-divider"></div>
+          <div class="summary-total-row">
+            <span>Payable Right Now</span>
+            <span class="total-final-val">BDT  <span id="calc-final-payable">1,875</span></span>
+          </div>
+          <div class="remaining-payable-hint" id="calc-remaining-note">
+            Full 100% advance selected — zero remaining balance on delivery!
+          </div>
+        </div>
+
+        <!-- Action Buttons (Add to Cart / Buy Now / Wishlist / Share) -->
+        <div class="action-buttons-wrapper">
+          <button class="wishlist-square-btn" id="product-wishlist-toggle" title="Save to Wishlist">
+            <i data-lucide="heart" id="wishlist-icon" style="width:20px;height:20px;"></i>
+          </button>
+          
+          <button class="share-square-btn" id="product-share-btn" title="Share Product">
+            <i data-lucide="share-2" style="width:20px;height:20px;"></i>
+          </button>
+
+          <button class="btn-primary-3d" id="btn-add-to-cart">
+            <i data-lucide="shopping-cart" style="width:18px;height:18px;"></i>
+            <span>ADD TO CART</span>
+          </button>
+
+          <button class="btn-buy-now" id="btn-buy-now">
+            <i data-lucide="zap" style="width:18px;height:18px;"></i>
+            <span>BUY NOW</span>
+          </button>
+        </div>
+
+        <!-- Product Services Highlights -->
+        <div class="product-services-grid" id="product-services-container">
+          <!-- Injected via JS -->
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Supplier Information Card -->
+    <div class="supplier-card" id="supplier-info-card">
+      <div class="supplier-left">
+        <div class="supplier-avatar" id="supplier-avatar-initial">G</div>
+        <div class="supplier-details">
+          <h3>
+            <span id="supplier-name-text">Guangzhou Baili Leatherware &amp; Luggage Co., Ltd.</span>
+            <span class="verified-badge"><i data-lucide="shield-check" style="width:12px;height:12px;"></i> Verified Factory</span>
+          </h3>
+          <p class="supplier-location" id="supplier-location-text"><i data-lucide="map-pin" style="width:13px;display:inline-block;"></i> Huadu District, Guangzhou, Guangdong, China</p>
+        </div>
+      </div>
+
+      <div class="supplier-stats-row">
+        <div class="supplier-stat-box">
+          <div class="stat-box-val" id="supplier-rating-val">4.9 ★</div>
+          <div class="stat-box-label">Supplier Rating</div>
+        </div>
+        <div class="supplier-stat-box">
+          <div class="stat-box-val" id="supplier-years-val">8 Years</div>
+          <div class="stat-box-label">Gold Supplier</div>
+        </div>
+        <div class="supplier-stat-box">
+          <div class="stat-box-val" id="supplier-orders-val">48,200+</div>
+          <div class="stat-box-label">Global Orders</div>
+        </div>
+        <div class="supplier-stat-box">
+          <div class="stat-box-val" id="supplier-response-val">98.4%</div>
+          <div class="stat-box-label">Response Rate</div>
+        </div>
+      </div>
+
+      <div class="supplier-actions">
+        <button class="btn-outline-sm" id="btn-contact-sourcing">
+          <i data-lucide="message-square" style="width:14px;height:14px;"></i> Ask Sourcing Agent
+        </button>
+      </div>
+    </div>
+
+    <!-- Tabbed Information Area -->
+    <div class="product-tabs-wrapper">
+      <div class="tabs-nav-bar">
+        <button class="tab-nav-btn active" data-tab="tab-description">Description</button>
+        <button class="tab-nav-btn" data-tab="tab-specs">Specifications</button>
+        <button class="tab-nav-btn" data-tab="tab-details">Product Details</button>
+        <button class="tab-nav-btn" data-tab="tab-shipping">Shipping &amp; Delivery</button>
+        <button class="tab-nav-btn" data-tab="tab-returns">Return &amp; Refund</button>
+        <button class="tab-nav-btn" data-tab="tab-reviews">Customer Reviews (<span id="tab-reviews-count">3</span>)</button>
+      </div>
+
+      <div class="tab-content-container">
+        
+        <!-- Tab 1: Description -->
+        <div class="tab-pane active" id="tab-description">
+          <div class="description-body" id="tab-desc-content">
+            <!-- Injected dynamically -->
+          </div>
+        </div>
+
+        <!-- Tab 2: Specifications Table -->
+        <div class="tab-pane" id="tab-specs">
+          <table class="specs-table" id="tab-specs-table">
+            <tbody>
+              <!-- Injected dynamically -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Tab 3: Product Details -->
+        <div class="tab-pane" id="tab-details">
+          <div class="description-body">
+            <h3 style="font-size:17px;font-weight:700;color:var(--slate-900);margin-bottom:12px;">Quality Certification &amp; Sourcing Standards</h3>
+            <p>Every single consignment sourced through <strong>WORLD BUY BD</strong> is purchased directly from official certified factories on Wholesale and Taobao in Guangdong, Zhejiang, and Fujian manufacturing clusters.</p>
+            <p>Before packaging for air cargo or ocean container transit, items undergo comprehensive physical inspection at our central warehouse in Baiyun District, Guangzhou. Our inspection team verifies:</p>
+            <ul style="padding-left:24px;margin-bottom:16px;display:flex;flex-direction:column;gap:6px;">
+              <li>Accurate SKU size, color match, and stitch/finish perfection.</li>
+              <li>Functional checks (smooth zipper gliding, buckle retention, electronics charging).</li>
+              <li>Moisture-barrier bubble packaging and corner edge protectors for overseas transit.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Tab 4: Shipping -->
+        <div class="tab-pane" id="tab-shipping">
+          <div class="description-body">
+            <h3 style="font-size:17px;font-weight:700;color:var(--slate-900);margin-bottom:12px;">Comprehensive China to Bangladesh Shipping Guide</h3>
+            <p>We handle all export declarations in China, airline/vessel container freight, Bangladesh Customs clearance, duty payments, and direct doorstep courier dispatch across all 64 districts in Bangladesh.</p>
+            
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin:20px 0;">
+              <div style="background:var(--slate-50);border:1px solid var(--slate-200);border-radius:12px;padding:16px;">
+                <h4 style="color:var(--primary);font-weight:700;margin-bottom:8px;"><i data-lucide="plane" style="width:16px;display:inline-block;"></i> BUY AIR Express</h4>
+                <p style="font-size:13px;">Estimated delivery: <strong>7 to 12 working days</strong> after arrival in our China warehouse.</p>
+                <p style="font-size:13px;margin-top:6px;">Ideal for apparel, footwear, watches, accessories, and lightweight gadgets.</p>
+              </div>
+
+              <div style="background:var(--slate-50);border:1px solid var(--slate-200);border-radius:12px;padding:16px;">
+                <h4 style="color:var(--accent);font-weight:700;margin-bottom:8px;"><i data-lucide="ship" style="width:16px;display:inline-block;"></i> BUY SEA Bulk</h4>
+                <p style="font-size:13px;">Estimated delivery: <strong>30 to 40 calendar days</strong>.</p>
+                <p style="font-size:13px;margin-top:6px;">Most economical for heavy equipment, machinery, home decor, furniture, and bulk commercial orders.</p>
+              </div>
+            </div>
+
+            <p style="font-size:12px;color:var(--slate-500);font-style:italic;">* Please note that shipping charges are billed on the actual gross weight or volumetric weight (whichever is greater) upon arrival at our Dhaka sorting hub.</p>
+          </div>
+        </div>
+
+        <!-- Tab 5: Returns & Refunds -->
+        <div class="tab-pane" id="tab-returns">
+          <div class="description-body">
+            <h3 style="font-size:17px;font-weight:700;color:var(--slate-900);margin-bottom:12px;">WORLD BUY BD 100% Buyer Protection Guarantee</h3>
+            <p>We take pride in transparent cross-border import operations. Your funds and goods are safeguarded under our comprehensive guarantee policy:</p>
+            <div style="display:flex;flex-direction:column;gap:12px;margin:16px 0;">
+              <div style="display:flex;gap:12px;align-items:flex-start;">
+                <i data-lucide="check-circle-2" style="color:var(--success);width:20px;flex-shrink:0;"></i>
+                <div>
+                  <strong>Damaged or Wrong Item Received:</strong>
+                  <p style="font-size:13px;color:var(--slate-600);">If an item arrives damaged or differs substantially from your chosen SKU, report within 48 hours with unboxing video proof for an immediate free replacement or refund.</p>
+                </div>
+              </div>
+              <div style="display:flex;gap:12px;align-items:flex-start;">
+                <i data-lucide="check-circle-2" style="color:var(--success);width:20px;flex-shrink:0;"></i>
+                <div>
+                  <strong>Lost Parcel Guarantee:</strong>
+                  <p style="font-size:13px;color:var(--slate-600);">In the rare event of international cargo transit loss, WORLD BUY BD provides a 100% full money-back refund directly to your bKash, Nagad, or Bank account.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 6: Reviews -->
+        <div class="tab-pane" id="tab-reviews">
+          <div class="reviews-dashboard">
+            
+            <div class="rating-summary-card">
+              <div class="big-rating-number" id="review-summary-score">4.8</div>
+              <div class="stars-row">
+                <i data-lucide="star" style="fill:currentColor;width:20px;height:20px;"></i>
+                <i data-lucide="star" style="fill:currentColor;width:20px;height:20px;"></i>
+                <i data-lucide="star" style="fill:currentColor;width:20px;height:20px;"></i>
+                <i data-lucide="star" style="fill:currentColor;width:20px;height:20px;"></i>
+                <i data-lucide="star" style="fill:currentColor;width:20px;height:20px;"></i>
+              </div>
+              <div style="font-size:13px;color:var(--slate-500);">Based on <span id="review-total-count">184</span> verified ratings</div>
+              
+              <div class="rating-bars-list">
+                <div class="rating-bar-row">
+                  <span>5 ★</span>
+                  <div class="bar-track"><div class="bar-fill" style="width:85%;"></div></div>
+                  <span>85%</span>
+                </div>
+                <div class="rating-bar-row">
+                  <span>4 ★</span>
+                  <div class="bar-track"><div class="bar-fill" style="width:11%;"></div></div>
+                  <span>11%</span>
+                </div>
+                <div class="rating-bar-row">
+                  <span>3 ★</span>
+                  <div class="bar-track"><div class="bar-fill" style="width:3%;"></div></div>
+                  <span>3%</span>
+                </div>
+                <div class="rating-bar-row">
+                  <span>2 ★</span>
+                  <div class="bar-track"><div class="bar-fill" style="width:1%;"></div></div>
+                  <span>1%</span>
+                </div>
+                <div class="rating-bar-row">
+                  <span>1 ★</span>
+                  <div class="bar-track"><div class="bar-fill" style="width:0%;"></div></div>
+                  <span>0%</span>
+                </div>
+              </div>
+
+              <button class="btn-outline-sm" style="width:100%;justify-content:center;margin-top:8px;" id="btn-write-review">
+                <i data-lucide="edit-3" style="width:14px;height:14px;"></i> Write a Review
+              </button>
+            </div>
+
+            <div class="customer-reviews-list" id="customer-reviews-container">
+              <!-- Customer reviews injected dynamically -->
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Related Products ("You May Also Like") -->
+    <section class="related-products-section" id="related-products-section">
+      <div class="section-header-row">
+        <h2 class="section-main-title">You May Also Like</h2>
+        <span style="font-size:14px;color:var(--slate-500);">Trending imports from verified China suppliers</span>
+      </div>
+      <div class="products-grid" id="related-products-container">
+        <!-- Injected via JavaScript -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Mobile Sticky Bottom Action Bar -->
+  <div class="mobile-sticky-bar" id="mobile-sticky-bar">
+    <div class="mobile-price-summary">
+      <span style="font-size:11px;color:var(--slate-500);">Total:</span>
+      <span class="mobile-price-val" id="mobile-bottom-price">BDT  1,250</span>
+    </div>
+    <div class="mobile-action-buttons">
+      <button class="btn-primary-3d" id="mobile-btn-cart">
+        <i data-lucide="shopping-cart" style="width:15px;height:15px;"></i> Add Cart
+      </button>
+      <button class="btn-buy-now" id="mobile-btn-buy">
+        <i data-lucide="zap" style="width:15px;height:15px;"></i> Buy Now
+      </button>
+    </div>
+  </div>
+
+  <!-- 3D Glass Login / Sign Up Protection Modal -->
+  <div class="modal-backdrop" id="auth-modal-backdrop">
+    <div class="modal-box-3d">
+      <button class="modal-close-btn" id="auth-modal-close" title="Close">
+        <i data-lucide="x" style="width:18px;height:18px;"></i>
+      </button>
+
+      <div class="modal-header-hero">
+        <div class="modal-hero-icon">
+          <i data-lucide="lock" style="width:26px;height:26px;"></i>
+        </div>
+        <h2>Sign In to WORLD BUY BD</h2>
+        <p>Please login or create an account to continue your purchase.</p>
+      </div>
+
+      <div class="modal-body-form">
+        <form id="modal-login-form" onsubmit="event.preventDefault(); window.handleModalAuth();">
+          <div class="form-field">
+            <label for="auth-phone-input">Mobile Number / Email</label>
+            <input type="text" id="auth-phone-input" placeholder="e.g. 01712345678" required>
+          </div>
+
+          <div class="form-field">
+            <label for="auth-pass-input">Password</label>
+            <input type="password" id="auth-pass-input" placeholder="••••••••" required>
+          </div>
+
+          <button type="submit" class="btn-primary-3d" style="width:100%;margin-top:6px;">
+            <i data-lucide="log-in" style="width:16px;height:16px;"></i>
+            <span>Login &amp; Continue to Checkout</span>
+          </button>
+        </form>
+
+        <div class="form-footer-actions">
+          <button type="button" class="btn-secondary-neutral" id="btn-modal-guest-checkout">
+            <i data-lucide="user-check" style="width:15px;height:15px;display:inline-block;vertical-align:middle;"></i> Continue as Guest Checkout
+          </button>
+          <div style="text-align:center;font-size:12px;color:var(--slate-500);margin-top:4px;">
+            Don't have an account? <a href="javascript:void(0)" id="switch-to-register-btn" style="color:var(--primary);font-weight:700;">Create Account</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Shipping Rates Details Modal -->
+  <div class="modal-backdrop" id="shipping-modal-backdrop">
+    <div class="modal-box-3d" style="max-width:540px;">
+      <button class="modal-close-btn" id="shipping-modal-close" title="Close">
+        <i data-lucide="x" style="width:18px;height:18px;"></i>
+      </button>
+
+      <div class="modal-header-hero" style="background:linear-gradient(135deg,#0284c7,#0369a1);">
+        <div class="modal-hero-icon" style="background:rgba(255,255,255,0.25);">
+          <i data-lucide="ship" style="width:26px;height:26px;"></i>
+        </div>
+        <h2>WORLD BUY BD Shipping Rates</h2>
+        <p>Configured direct from settings. All customs &amp; port clearance included.</p>
+      </div>
+
+      <div class="modal-body-form" id="shipping-modal-content">
+        <!-- Content populated from data/settings.json -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Fullscreen Media Gallery Viewer Modal -->
+  <div class="fullscreen-modal" id="fullscreen-modal">
+    <button class="fullscreen-close" id="fullscreen-close-btn" title="Close Fullscreen">
+      <i data-lucide="x" style="width:24px;height:24px;"></i>
+    </button>
+    <div class="fullscreen-image-container">
+      <img src="" alt="Fullscreen preview" id="fullscreen-image-element">
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Footer Section -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="brand-logo" style="margin-bottom:16px;">
+            <div class="brand-icon" style="background:#2563eb;">
+              <i data-lucide="globe" style="width:22px;height:22px;color:#fff;"></i>
+            </div>
+            <div class="brand-text">
+              <span class="brand-name" style="color:#fff;">WORLD<span style="color:#60a5fa;">BUY</span> BD</span>
+              <span class="brand-tag">Trusted Import Hub</span>
+            </div>
+          </div>
+          <p style="font-size:13px;line-height:1.6;color:var(--slate-400);">WORLD BUY BD provides seamless, transparent cross-border purchasing directly from China's premier B2B and consumer marketplaces (Wholesale, Taobao, Tmall) to customers across Bangladesh.</p>
+          <div style="margin-top:16px;display:flex;gap:12px;color:#fff;">
+            <a href="javascript:void(0)"><i data-lucide="facebook" style="width:18px;height:18px;"></i></a>
+            <a href="javascript:void(0)"><i data-lucide="youtube" style="width:18px;height:18px;"></i></a>
+            <a href="javascript:void(0)"><i data-lucide="instagram" style="width:18px;height:18px;"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Customer Service</h4>
+          <ul class="footer-links-list">
+            <li><a href="javascript:void(0)">Track My Order</a></li>
+            <li><a href="javascript:void(0)">How to Order</a></li>
+            <li><a href="javascript:void(0)">Shipping &amp; Cargo Rates</a></li>
+            <li><a href="javascript:void(0)">Payment Methods</a></li>
+            <li><a href="javascript:void(0)">Return &amp; Refund Policy</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>About WORLD BUY BD</h4>
+          <ul class="footer-links-list">
+            <li><a href="javascript:void(0)">About Us</a></li>
+            <li><a href="javascript:void(0)">Guangzhou Warehouse</a></li>
+            <li><a href="javascript:void(0)">Dhaka Sorting Center</a></li>
+            <li><a href="javascript:void(0)">Wholesale &amp; B2B</a></li>
+            <li><a href="javascript:void(0)">Terms &amp; Conditions</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact Dhaka Hub</h4>
+          <p style="font-size:13px;line-height:1.6;margin-bottom:10px;">
+            <i data-lucide="map-pin" style="width:14px;display:inline-block;"></i> House - 07, Road - 2/A, Sector - 4, Uttara, Dhaka - 1230, Bangladesh
+          </p>
+          <p style="font-size:13px;margin-bottom:6px;">
+            <i data-lucide="phone" style="width:14px;display:inline-block;"></i> +880 1616-045789
+          </p>
+          <p style="font-size:13px;">
+            <i data-lucide="mail" style="width:14px;display:inline-block;"></i> support@worldbuybd.com
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <span>&copy; 2026 WORLD BUY BD. All Rights Reserved. Not affiliated with ChinaOnlineBD.</span>
+        <span>Secure Payments: bKash • Nagad • Rocket • Visa • MasterCard • Bank Transfer</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="product.js"></script>
+</body>
+</html>
